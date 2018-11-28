@@ -1,0 +1,78 @@
+#################### Exercice 1 ####################
+
+Q1) Ces commandes donnent des propriétés du dataset
+
+Q2) On affiche une image depuis le dataset parmis celles sélectionnées
+
+Q3) C'est fait
+
+#################### Exercice 2 ####################
+
+Le taux d'erreur est très faible mais en même temps on a un gros jeu de données
+
+Taux de fiabilité jusqu'à 94 % !
+
+Boucle sur k :
+
+K : 2, Efficacité : 0.908
+K : 3, Efficacité : 0.921
+K : 4, Efficacité : 0.918
+K : 5, Efficacité : 0.918
+K : 6, Efficacité : 0.915
+K : 7, Efficacité : 0.918
+K : 8, Efficacité : 0.918
+K : 9, Efficacité : 0.917
+K : 10, Efficacité : 0.914
+K : 11, Efficacité : 0.909
+K : 12, Efficacité : 0.904
+K : 13, Efficacité : 0.905
+K : 14, Efficacité : 0.903
+K : 15, Efficacité : 0.902
+
+On observe un pic d'efficacité entre 3 et 9
+
+Boucle avec KFold :
+
+K : 2, Efficacité : 0.9329608938547486
+K : 3, Efficacité : 0.9581005586592178
+K : 4, Efficacité : 0.896358543417367
+K : 5, Efficacité : 0.9439775910364145
+K : 6, Efficacité : 0.9243697478991597
+K : 7, Efficacité : 0.9439775910364145
+K : 8, Efficacité : 0.9187675070028011
+K : 9, Efficacité : 0.9299719887955182
+K : 10, Efficacité : 0.9411764705882353
+K : 11, Efficacité : 0.927170868347339
+K : 12, Efficacité : 0.9215686274509803
+K : 13, Efficacité : 0.9355742296918768
+K : 14, Efficacité : 0.9243697478991597
+K : 15, Efficacité : 0.8823529411764706
+
+Etant donné que le jeu de train change tout le temps, difficile de comparer les taux
+d'efficacité entre eux pour cette boucle ... Les résultats oscillent.
+
+Variation de la taille de train :
+
+Train size : 0.2%, Efficacité : 0.881
+Train size : 0.3%, Efficacité : 0.876
+Train size : 0.4%, Efficacité : 0.899
+Train size : 0.5%, Efficacité : 0.9084
+Train size : 0.6%, Efficacité : 0.916
+Train size : 0.7%, Efficacité : 0.92
+Train size : 0.8%, Efficacité : 0.92
+Train size : 0.9%, Efficacité : 0.932
+
+Donc l'entrainement, ça compte !
+
+Pour le temps :
+
+n_jobs : -1, Temps total : 4.217797040939331
+n_jobs : 1, Temps total : 13.992029905319214
+
+Effectivement, quand on prend tous les process disponibles, ça va plus vite !
+
+Bilan des courses : On comparera avec les autres TP
+
+
+
+

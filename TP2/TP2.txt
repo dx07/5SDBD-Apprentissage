@@ -1,0 +1,30 @@
+Avec réseau de neurones, fiabilité plus haute (+ de 95% de fiabilité atteints !!)
+
+La précision est égale à la prédiction.
+
+Avec variation (augmentation) des couches, de plus en plus efficace
+
+!!!!!!!!!!! RECUPERER UN EXEMPLE !!!!!!!!!!!!!!
+
+NB : Précision = Prédiction tout le temps
+
+Y a pas à dire, les réseaux de neurones, c'est lent !!
+
+Test avec couches aléatoires :
+
+!!!!!!!!!!! RECUPERER UN EXEMPLE !!!!!!!!!!!!!!
+
+Plus il y a de couches / neuronnes, plus c'est lent, mais plus c'est efficace !
+
+Avec des solvers différents :
+
+Solver : lbfgs, Efficacité : 0.8749523809523809, Précision : 0.8749523809523809, Temps : 364.72379636764526
+Solver : sgd, Efficacité : 0.893095238095238, Précision : 0.893095238095238, Temps : 455.939786195755
+Solver : adam, Efficacité : 0.9497619047619048, Précision : 0.9497619047619048, Temps : 362.726859331131
+
+
+
+
+
+
+
