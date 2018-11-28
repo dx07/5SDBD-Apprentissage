@@ -7,7 +7,7 @@ from sklearn.datasets import fetch_mldata
 from sklearn.model_selection import train_test_split, KFold
 
 # ----------------------------------------------------
-
+s
 mnist = fetch_mldata('MNIST original')
 
 indices = np.random.randint(70000, size=5000)
@@ -16,15 +16,15 @@ target = mnist.target[indices]
 
 # ----------------- Test avec K = 10 -----------------
 
-#
-# xtrain, xtest, ytrain, ytest = train_test_split(data, target, train_size=0.8, test_size=0.2)
 
-# clf = neighbors.KNeighborsClassifier(10)
-#
-# clf.fit(xtrain,ytrain)
-# prediction = clf.predict(xtest)
-# score = clf.score(xtest, ytest)
-# print("Prédiction : {}, Valeur : {}, Efficacité : {}".format(prediction[4], ytest[4], score))
+xtrain, xtest, ytrain, ytest = train_test_split(data, target, train_size=0.8, test_size=0.2)
+
+clf = neighbors.KNeighborsClassifier(10)
+
+clf.fit(xtrain,ytrain)
+prediction = clf.predict(xtest)
+score = clf.score(xtest, ytest)
+print("Prédiction : {}, Valeur : {}, Efficacité : {}".format(prediction[4], ytest[4], score))
 
 # ----------------- Boucle de variation de k -----------------
 
@@ -75,15 +75,15 @@ target = mnist.target[indices]
 
 # ----------------- Test avec n_jobs à 1 puis -1 -----------------
 
-xtrain, xtest, ytrain, ytest = train_test_split(data, target, train_size=0.8)
-
-for i in [-1,1]:
-
-    clf = neighbors.KNeighborsClassifier(7,n_jobs=i)
-
-    clf.fit(xtrain, ytrain)
-    time_start = time()
-    prediction = clf.predict(xtest)
-    time_stop = time()
-    score = clf.score(xtest, ytest)
-    print("n_jobs : {}, Temps total : {}".format(i,time_stop-time_start))
+# xtrain, xtest, ytrain, ytest = train_test_split(data, target, train_size=0.8)
+#
+# for i in [-1,1]:
+#
+#     clf = neighbors.KNeighborsClassifier(7,n_jobs=i)
+#
+#     clf.fit(xtrain, ytrain)
+#     time_start = time()
+#     prediction = clf.predict(xtest)
+#     time_stop = time()
+#     score = clf.score(xtest, ytest)
+#     print("n_jobs : {}, Temps total : {}".format(i,time_stop-time_start))
