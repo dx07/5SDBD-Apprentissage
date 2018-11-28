@@ -1,0 +1,9 @@
+C'est long. Test avec 10000 valeurs
+
+Kernel : linear, Temps : 32.36330008506775, Prédiction : 5.0, Valeur : 5.0, Efficacité : 0.9176666666666666
+Kernel : poly, Temps : 33.0574676990509, Prédiction : 5.0, Valeur : 5.0, Efficacité : 0.9583333333333334
+Kernel : rbf, Temps : 251.08229064941406, Prédiction : 1.0, Valeur : 5.0, Efficacité : 0.18633333333333332
+Kernel : sigmoid, Temps : 189.82486295700073, Prédiction : 1.0, Valeur : 5.0, Efficacité : 0.115
+
+Efficacité pourrie sur les derniers, peut être à cause du nombre de données train
+
