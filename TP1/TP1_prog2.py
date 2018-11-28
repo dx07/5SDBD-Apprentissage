@@ -7,7 +7,7 @@ from sklearn.datasets import fetch_mldata
 from sklearn.model_selection import train_test_split, KFold
 
 # ----------------------------------------------------
-s
+
 mnist = fetch_mldata('MNIST original')
 
 indices = np.random.randint(70000, size=5000)
