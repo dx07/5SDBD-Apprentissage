@@ -71,7 +71,7 @@ n_jobs : 1, Temps total : 13.992029905319214
 
 Effectivement, quand on prend tous les process disponibles, ça va plus vite !
 
-Bilan des courses : On comparera avec les autres TP
+Bilan des courses : On comparera avec les autres solvers
 
 
 

@@ -14,7 +14,8 @@ target = mnist.target[indices]
 
 xtrain, xtest, ytrain, ytest = train_test_split(data, target, train_size= 0.7)
 
-''' temps d'execution
+''' 
+# temps d'execution
 
 score=[]
 execution_time=[]
@@ -40,7 +41,8 @@ plt.plot(values_of_c,execution_time)
 plt.show()
 '''
 
-''' score
+''' 
+# score
 
 score=[]
 execution_time=[]
@@ -95,7 +97,8 @@ plt.plot(values_of_c,score)
 plt.show()
 '''
 
-''''# variation gamma
+''''
+# variation gamma
 
 score=[]
 execution_time=[]
@@ -123,7 +126,10 @@ plt.plot(values_of_c,execution_time)
 plt.show()
 '''
 
-'''avec les paramètres générés tout seul    
+
+'''
+# avec les paramètres générés tout seul 
+   
 parameters = {'kernel':('linear', 'rbf', 'sigmoid', 'poly'), 'C':[1, 10]}
 
 svc = svm.SVC(kernel='sigmoid')
@@ -141,7 +147,10 @@ total_time = end - begin
 print("time: ", total_time)
 '''
 
-''' matrice de confusion
+
+''' 
+# matrice de confusion
+
 clasifier = svm.SVC(kernel='linear')
 
 begin = time()
@@ -149,7 +158,6 @@ clasifier.fit(xtrain,ytrain)
 predicted = clasifier.predict(X=xtest)
 end = time()
 
-score.append(clasifier.score(xtest, ytest))
 print("score: ", clasifier.score(xtest, ytest))
 
 total_time = end - begin
