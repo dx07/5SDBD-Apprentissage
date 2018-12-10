@@ -8,6 +8,7 @@ from sklearn import metrics
 
 
 def compute_dbscan(X, eps = 0.3, min_samples = 10, labels_true = None):
+
     clustering = DBSCAN(eps=eps, min_samples=min_samples).fit(X)
     core_samples_mask = np.zeros_like(clustering.labels_, dtype=bool)
     core_samples_mask[clustering.core_sample_indices_] = True
