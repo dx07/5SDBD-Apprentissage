@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.spatial.distance import euclidean, pdist, squareform
 
 from sklearn.cluster import DBSCAN
 from sklearn import metrics
@@ -62,7 +63,6 @@ def plot_result(X, labels, core_samples_mask, n_clusters_):
 
 # #############################################################################
 
-
 # centers = [[1, 1], [-1, -1], [1, -1]]
 # X, labels_true = make_blobs(n_samples=750, centers=centers, cluster_std=0.4,
 #                             random_state=0)
@@ -70,10 +70,10 @@ def plot_result(X, labels, core_samples_mask, n_clusters_):
 # X = StandardScaler().fit_transform(X)
 
 datasets = [
-    ['cham-data/t4.8k.dat', 10, 18],
-    ['cham-data/t5.8k.dat', 9.8, 18],
-    ['cham-data/t7.10k.dat', 10, 13],
-    ['cham-data/t8.8k.dat', 10.1, 7],
+    ['TP-Clustering/cham-data/t4.8k.dat', 10, 18],
+    ['TP-Clustering/cham-data/t5.8k.dat', 9.8, 18],
+    ['TP-Clustering/cham-data/t7.10k.dat', 10, 13],
+    ['TP-Clustering/cham-data/t8.8k.dat', 10.1, 7],
 ]
 
 for file, eps, min_samples in datasets:
@@ -97,3 +97,20 @@ remove them.
 7. Remove all links that have weight smaller than a threshold.
 8. Take connected components of points to form clusters, where every point
 """
+
+X = np.genfromtxt('TP-Clustering/cham-data/t4.8k.dat', dtype=float)
+
+X_dist = np.array(squareform(pdist(X, metric='euclidean')))
+
+X_sim  = 1 / (1 + X_dist)
+
+seuil = 200
+
+X_sim[X_sim < seuil] = 0
+
+
+
+# #############################################################################
+
+
+
