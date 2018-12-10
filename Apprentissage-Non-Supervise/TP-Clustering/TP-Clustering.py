@@ -1,9 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.spatial.distance import euclidean, pdist, squareform
+from scipy.spatial.distance import pdist, squareform
 
 from sklearn.cluster import DBSCAN
 from sklearn import metrics
+from sklearn.neighbors import kneighbors_graph
 
 # #############################################################################
 
@@ -34,6 +35,7 @@ def compute_dbscan(X, eps = 0.3, min_samples = 10, labels_true = None):
 
     return clustering, labels, core_samples_mask, n_clusters_, n_noise_
 
+
 # #############################################################################
 
 
@@ -63,22 +65,26 @@ def plot_result(X, labels, core_samples_mask, n_clusters_):
 
 # #############################################################################
 
+# Jeu de données test basique
+
 # centers = [[1, 1], [-1, -1], [1, -1]]
 # X, labels_true = make_blobs(n_samples=750, centers=centers, cluster_std=0.4,
 #                             random_state=0)
 #
 # X = StandardScaler().fit_transform(X)
 
+repository = "Apprentissage-Non-Supervise/TP-Clustering/cham-data/{}"
+
 datasets = [
-    ['TP-Clustering/cham-data/t4.8k.dat', 10, 18],
-    ['TP-Clustering/cham-data/t5.8k.dat', 9.8, 18],
-    ['TP-Clustering/cham-data/t7.10k.dat', 10, 13],
-    ['TP-Clustering/cham-data/t8.8k.dat', 10.1, 7],
+    ["t4.8k.dat", 10, 18],
+    ["t5.8k.dat", 9.8, 18],
+    ["t7.10k.dat", 10, 13],
+    ["t8.8k.dat", 10.1, 7],
 ]
 
-for file, eps, min_samples in datasets:
+for filename, eps, min_samples in datasets:
 
-    X = np.genfromtxt(file, dtype=float)
+    X = np.genfromtxt(repository.format(filename), dtype=float)
     clustering, labels, core_samples_mask, n_clusters_, n_noise_ = compute_dbscan(X, eps, min_samples)
 
     plot_result(X, labels, core_samples_mask, n_clusters_)
