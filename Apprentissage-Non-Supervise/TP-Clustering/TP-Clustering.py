@@ -108,7 +108,14 @@ X = np.genfromtxt('TP-Clustering/cham-data/t4.8k.dat', dtype=float)
 
 X_dist = np.array(squareform(pdist(X, metric='euclidean')))
 
-X_sim  = 1 / (1 + X_dist)
+X_sim = 1 / (1 + X_dist)
+
+
+
+
+
+
+
 
 seuil = 200
 
