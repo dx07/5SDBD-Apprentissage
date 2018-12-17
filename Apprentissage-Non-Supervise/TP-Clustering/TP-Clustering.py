@@ -104,18 +104,15 @@ remove them.
 8. Take connected components of points to form clusters, where every point
 """
 
-X = np.genfromtxt('TP-Clustering/cham-data/t4.8k.dat', dtype=float)
+X = np.genfromtxt('Apprentissage-Non-Supervise/TP-Clustering/cham-data/t4.8k.dat', dtype=float)
 
 X_dist = np.array(squareform(pdist(X, metric='euclidean')))
 
 X_sim = 1 / (1 + X_dist)
 
 
-
-
-
-
-
+#Converting adjacency matrix to graph
+G = kneighbors_graph(X_sim, 2, mode='distance', include_self= False).toarray()
 
 seuil = 200
 
