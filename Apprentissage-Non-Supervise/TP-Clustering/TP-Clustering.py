@@ -90,10 +90,14 @@ def process_datasets(datasets):
 repository = "Apprentissage-Non-Supervise/TP-Clustering/cham-data/{}"
 
 datasets = [
-    # ["t4.8k.dat", 14, 26],
-    # ["t5.8k.dat", 12, 38],
-    # ["t7.10k.dat", 14, 26],
-    ["t8.8k.dat", 10.1, 6.5],
+    ["t4.8k.dat", 10, 18],
+    ["t5.8k.dat", 9.8, 18],
+    ["t7.10k.dat", 10, 13],
+    ["t8.8k.dat", 10.1, 7],
+    ["t4.8k.dat", 12, 22],
+    ["t5.8k.dat", 12, 38],
+    ["t7.10k.dat", 14, 26],
+    ["t8.8k.dat", 12, 6],
 ]
 
 process_datasets(datasets)
