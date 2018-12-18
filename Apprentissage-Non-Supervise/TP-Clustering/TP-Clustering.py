@@ -20,6 +20,8 @@ def compute_dbscan(X, eps = 0.3, min_samples = 10, labels_true = None):
     n_clusters_ = len(set(labels)) - (1 if -1 in labels else 0)
     n_noise_ = list(labels).count(-1)
 
+    print('Epsilon: %d' % eps)
+    print('Min Samples: %d' % min_samples)
     print('Estimated number of clusters: %d' % n_clusters_)
     print('Estimated number of noise points: %d' % n_noise_)
     print("Silhouette Coefficient: %0.3f"
@@ -65,6 +67,18 @@ def plot_result(X, labels, core_samples_mask, n_clusters_):
 
 # #############################################################################
 
+
+def process_datasets(datasets):
+    for filename, eps, min_samples in datasets:
+        X = np.genfromtxt(repository.format(filename), dtype=float)
+        clustering, labels, core_samples_mask, n_clusters_, n_noise_ = compute_dbscan(X, eps, min_samples)
+
+        plot_result(X, labels, core_samples_mask, n_clusters_)
+
+
+# #############################################################################
+
+
 # Jeu de données test basique
 
 # centers = [[1, 1], [-1, -1], [1, -1]]
@@ -76,18 +90,13 @@ def plot_result(X, labels, core_samples_mask, n_clusters_):
 repository = "Apprentissage-Non-Supervise/TP-Clustering/cham-data/{}"
 
 datasets = [
-    ["t4.8k.dat", 10, 18],
-    ["t5.8k.dat", 9.8, 18],
-    ["t7.10k.dat", 10, 13],
-    ["t8.8k.dat", 10.1, 7],
+    # ["t4.8k.dat", 14, 26],
+    # ["t5.8k.dat", 12, 38],
+    # ["t7.10k.dat", 14, 26],
+    ["t8.8k.dat", 10.1, 6.5],
 ]
 
-for filename, eps, min_samples in datasets:
-
-    X = np.genfromtxt(repository.format(filename), dtype=float)
-    clustering, labels, core_samples_mask, n_clusters_, n_noise_ = compute_dbscan(X, eps, min_samples)
-
-    plot_result(X, labels, core_samples_mask, n_clusters_)
+process_datasets(datasets)
 
 # #############################################################################
 
@@ -117,8 +126,6 @@ G = kneighbors_graph(X_sim, 2, mode='distance', include_self= False).toarray()
 seuil = 200
 
 X_sim[X_sim < seuil] = 0
-
-
 
 # #############################################################################
 
