@@ -6,6 +6,7 @@ from sklearn.cluster import DBSCAN
 from sklearn import metrics
 from sklearn.neighbors import kneighbors_graph
 
+
 # #############################################################################
 
 
@@ -79,14 +80,6 @@ def process_datasets(datasets):
 # #############################################################################
 
 
-# Jeu de données test basique
-
-# centers = [[1, 1], [-1, -1], [1, -1]]
-# X, labels_true = make_blobs(n_samples=750, centers=centers, cluster_std=0.4,
-#                             random_state=0)
-#
-# X = StandardScaler().fit_transform(X)
-
 repository = "Apprentissage-Non-Supervise/TP-Clustering/cham-data/{}"
 
 datasets = [
@@ -102,35 +95,6 @@ datasets = [
 
 process_datasets(datasets)
 
-
-# #############################################################################
-
-"""
-1. Construct the similarity matrix.
-2. Sparsify the similarity matrix using k-nn sparsification.
-3. Construct the shared nearest neighbor graph from k-nn sparsified similarity matrix.
-4. For every point in the graph, calculate the total strength of links coming out of the
-point. (Steps 1-4 are identical to the Jarvis – Patrick scheme.)
-5. Identify representative points by choosing the points that have high total link strength.
-6. Identify noise points by choosing the points that have low total link strength and
-remove them.
-7. Remove all links that have weight smaller than a threshold.
-8. Take connected components of points to form clusters, where every point
-"""
-
-X = np.genfromtxt('Apprentissage-Non-Supervise/TP-Clustering/cham-data/t4.8k.dat', dtype=float)
-
-X_dist = np.array(squareform(pdist(X, metric='euclidean')))
-
-X_sim = 1 / (1 + X_dist)
-
-
-#Converting adjacency matrix to graph
-G = kneighbors_graph(X_sim, 2, mode='distance', include_self= False).toarray()
-
-seuil = 200
-
-X_sim[X_sim < seuil] = 0
 
 # #############################################################################
 
